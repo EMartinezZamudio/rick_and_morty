@@ -2,7 +2,6 @@ import Card from "../Card/Card";
 import { cardConteiner } from "./Cards.module.css";
 
 export default function Cards({ characters }) {
-  console.log(characters);
   return (
     <section className={cardConteiner}>
       {characters.map((character) => {

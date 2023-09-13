@@ -1,8 +1,10 @@
+import { headerContent, headerInput } from "./SearchBar.module.css";
+
 export default function SearchBar(props) {
   return (
-    <div>
-      <input type="search" />
+    <header className={headerContent}>
+      <input className={headerInput} type="search" />
       <button onClick={props.onSearch}>Agregar</button>
-    </div>
+    </header>
   );
 }

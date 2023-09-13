@@ -1,0 +1,20 @@
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 30%;
+  height: 100px;
+}
+
+.headerContent > * {
+  background-color: #bdc3c7;
+  height: 35%;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.headerInput {
+  width: 85%;
+  cursor: text;
+}
