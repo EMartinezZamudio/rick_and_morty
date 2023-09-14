@@ -1,6 +1,5 @@
 .headerContent {
   display: flex;
-  justify-content: space-between;
   align-items: end;
   width: 30%;
   height: 100px;
@@ -9,12 +8,16 @@
 .headerContent > * {
   background-color: #f8efba;
   height: 35%;
-  border-radius: 8px;
   border: none;
+}
+
+.headerButton {
+  border-radius: 0px 10px 10px 0px;
   cursor: pointer;
 }
 
 .headerInput {
-  width: 83%;
+  border-radius: 10px 0px 0px 10px;
+  width: 85%;
   cursor: text;
 }
