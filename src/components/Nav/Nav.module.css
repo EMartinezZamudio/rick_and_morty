@@ -1,0 +1,12 @@
+.navContent {
+  display: flex;
+  align-items: end;
+  width: 30%;
+  height: 100px;
+}
+
+.navContent > * {
+  background-color: #f8efba;
+  height: 35%;
+  border: none;
+}

@@ -1,17 +1,21 @@
-import { cardItem, cardDescription, cardTitle } from "./Card.module.css";
+import { card, cardDescription, cardTitle } from "./Card.module.css";
 
-export default function Card(props) {
+export default function Card({ onClose, name, species, gender, image, id }) {
+  const handleClick = () => {
+    onClose(id);
+  };
+
   return (
-    <article className={cardItem}>
+    <article className={card}>
       <div className={cardTitle}>
-        <button onClick={props.onClose}>X</button>
-        <h2>{props.name}</h2>
+        <button onClick={handleClick}>X</button>
+        <h2>{name}</h2>
       </div>
       <div className={cardDescription}>
-        <span>{props.species}</span>
-        <span>{props.gender}</span>
+        <span>{species}</span>
+        <span>{gender}</span>
       </div>
-      <img src={props.image} alt="" />
+      <img src={image} alt="" />
     </article>
   );
 }
