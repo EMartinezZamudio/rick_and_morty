@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 import SearchBar from "../SearchBar/SearchBar";
 import { navContent } from "./Nav.module.css";
 
-const Nav = ({ search }) => {
+const Nav = ({ onSearch }) => {
   return (
     <nav className={navContent}>
-      <SearchBar search={search} />
+      <SearchBar onSearch={onSearch} />
     </nav>
   );
 };
@@ -13,5 +13,5 @@ const Nav = ({ search }) => {
 export default Nav;
 
 Nav.propTypes = {
-  search: PropTypes.func,
+  onSearch: PropTypes.func,
 };

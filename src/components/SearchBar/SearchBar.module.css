@@ -3,6 +3,10 @@
   cursor: pointer;
 }
 
+.headerButton:hover {
+  background-color: #ded5a3;
+}
+
 .headerInput {
   border-radius: 10px 0px 0px 10px;
   width: 85%;

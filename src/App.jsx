@@ -7,7 +7,7 @@ import axios from "axios";
 function App() {
   const [characters, setCharacters] = useState([]);
 
-  const search = (id) => {
+  const onSearch = (id) => {
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className={app}>
-      <Nav search={search} />
+      <Nav onSearch={onSearch} />
       <Cards characters={characters} onClose={onClose} />
     </div>
   );

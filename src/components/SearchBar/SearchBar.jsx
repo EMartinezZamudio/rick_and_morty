@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { headerInput, headerButton } from "./SearchBar.module.css";
 import { useState } from "react";
 
-export default function SearchBar({ search }) {
+export default function SearchBar({ onSearch }) {
   const [id, setId] = useState("");
 
   const handleChange = (event) => {
@@ -10,7 +10,7 @@ export default function SearchBar({ search }) {
   };
 
   const handleClick = () => {
-    if (id) search(id);
+    if (id) onSearch(id);
     setId("");
   };
 
@@ -21,6 +21,7 @@ export default function SearchBar({ search }) {
         type="search"
         onChange={handleChange}
         value={id}
+        placeholder="ingresa el id"
       />
       <button className={headerButton} onClick={handleClick}>
         Agregar
@@ -30,5 +31,5 @@ export default function SearchBar({ search }) {
 }
 
 SearchBar.propTypes = {
-  search: PropTypes.func,
+  onSearch: PropTypes.func,
 };
