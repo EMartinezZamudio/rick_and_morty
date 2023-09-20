@@ -43,8 +43,8 @@ function App() {
           path="/home"
           element={<Home characters={characters} onClose={onClose} />}
         />
-        <Route path="detail" element={<Detail />} />
         <Route path="/about" element={<About />} />
+        <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </div>
   );

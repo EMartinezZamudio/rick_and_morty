@@ -13,7 +13,7 @@ export default function Card({ onClose, name, species, gender, image, id }) {
     <article className={card}>
       <div className={cardTitle}>
         <button onClick={() => onClose(id)}>X</button>
-        <Link className={linkName} to="detail">
+        <Link className={linkName} to={`/detail/${id}`}>
           <h2>{name}</h2>
         </Link>
       </div>
@@ -21,7 +21,7 @@ export default function Card({ onClose, name, species, gender, image, id }) {
         <span>{species}</span>
         <span>{gender}</span>
       </div>
-      <Link className={linkImg} to="detail">
+      <Link className={linkImg} to={`/detail/${id}`}>
         <img src={image} alt="" />
       </Link>
     </article>
