@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import About from "./views/About/About.jsx";
 import Home from "./views/Home/Home.jsx";
 import Landing from "./views/Landing/Landind.jsx";
+import Detail from "./views/Detail/Detail.jsx";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -42,6 +43,7 @@ function App() {
           path="/home"
           element={<Home characters={characters} onClose={onClose} />}
         />
+        <Route path="detail" element={<Detail />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </div>

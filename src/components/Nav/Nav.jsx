@@ -1,18 +1,18 @@
 import PropTypes from "prop-types";
 import SearchBar from "../SearchBar/SearchBar";
 import { navContent, routes } from "./Nav.module.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Nav = ({ onSearch }) => {
   return (
     <nav className={navContent}>
       <div className={routes}>
-        <NavLink to="/about">
+        <Link to="/about">
           <span>About</span>
-        </NavLink>
-        <NavLink to="/home">
+        </Link>
+        <Link to="/home">
           <span>Home</span>
-        </NavLink>
+        </Link>
       </div>
       <SearchBar onSearch={onSearch} />
     </nav>

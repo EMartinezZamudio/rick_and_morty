@@ -1,6 +1,8 @@
+import { description } from "./About.module.css";
+
 const About = () => {
   return (
-    <div>
+    <div className={description}>
       <h1>Esta es informacion sobre mi</h1>
     </div>
   );
