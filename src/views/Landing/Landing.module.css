@@ -1,0 +1,22 @@
+.landing {
+  color: white;
+  text-align: center;
+}
+
+.welcome {
+  font-size: 28px;
+}
+
+.title {
+  font-size: 45px;
+}
+
+.btn {
+  background-color: #f8efba;
+  margin-top: 100px;
+  width: 150px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}

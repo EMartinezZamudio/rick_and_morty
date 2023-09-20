@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { headerInput, headerButton } from "./SearchBar.module.css";
+import { headerInput, headerButton, searchBar } from "./SearchBar.module.css";
 import { useState } from "react";
 
 export default function SearchBar({ onSearch }) {
@@ -15,7 +15,7 @@ export default function SearchBar({ onSearch }) {
   };
 
   return (
-    <>
+    <div className={searchBar}>
       <input
         className={headerInput}
         type="search"
@@ -26,7 +26,7 @@ export default function SearchBar({ onSearch }) {
       <button className={headerButton} onClick={handleClick}>
         Agregar
       </button>
-    </>
+    </div>
   );
 }
 

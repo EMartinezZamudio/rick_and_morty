@@ -1,4 +1,7 @@
 .headerButton {
+  height: 40px;
+  border: none;
+  background-color: #f8efba;
   border-radius: 0px 10px 10px 0px;
   cursor: pointer;
 }
@@ -8,7 +11,16 @@
 }
 
 .headerInput {
+  height: 40px;
+  width: 400px;
+  border: none;
+  background-color: #f8efba;
   border-radius: 10px 0px 0px 10px;
-  width: 85%;
   cursor: text;
+}
+
+.searchBar {
+  height: 50px;
+  display: flex;
+  align-items: center;
 }

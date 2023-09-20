@@ -1,8 +1,11 @@
-import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import { app } from "./App.module.css";
 import { useState } from "react";
 import axios from "axios";
+import { Routes, Route } from "react-router-dom";
+import About from "./views/About/About.jsx";
+import Home from "./views/Home/Home.jsx";
+import Landing from "./views/Landing/Landind.jsx";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -33,7 +36,14 @@ function App() {
   return (
     <div className={app}>
       <Nav onSearch={onSearch} />
-      <Cards characters={characters} onClose={onClose} />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route
+          path="/home"
+          element={<Home characters={characters} onClose={onClose} />}
+        />
+        <Route path="/about" element={<About />} />
+      </Routes>
     </div>
   );
 }
