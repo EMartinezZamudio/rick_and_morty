@@ -39,11 +39,13 @@ function App() {
       <Nav onSearch={onSearch} />
       <Routes>
         <Route path="/" element={<Landing />} />
+
         <Route
           path="/home"
           element={<Home characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
+
         <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </div>

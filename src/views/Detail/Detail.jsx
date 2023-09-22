@@ -20,7 +20,7 @@ const Detail = () => {
     return setCharacter({});
   }, [id]);
 
-  const { name, status, species, gender, image } = character;
+  const { name, status, species, gender, origin, image } = character;
 
   return (
     <section className={details}>
@@ -38,7 +38,11 @@ const Detail = () => {
         <p>
           Gender: <span>{gender}</span>
         </p>
-        {/* <p>{handleOrigin()}</p> */}
+        {origin && origin.name && (
+          <p>
+            Origin: <span>{origin.name}</span>
+          </p>
+        )}
       </div>
     </section>
   );
