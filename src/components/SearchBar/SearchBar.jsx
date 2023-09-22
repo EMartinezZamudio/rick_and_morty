@@ -14,15 +14,23 @@ export default function SearchBar({ onSearch }) {
     setId("");
   };
 
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (id) onSearch(id);
+    setId("");
+  };
+
   return (
     <div className={searchBar}>
-      <input
-        className={headerInput}
-        type="search"
-        onChange={handleChange}
-        value={id}
-        placeholder="ingresa el id"
-      />
+      <form onSubmit={onSubmit}>
+        <input
+          className={headerInput}
+          type="search"
+          onChange={handleChange}
+          value={id}
+          placeholder="ingresa el id"
+        />
+      </form>
       <button className={headerButton} onClick={handleClick}>
         Agregar
       </button>
