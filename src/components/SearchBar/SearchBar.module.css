@@ -2,7 +2,7 @@
   height: 40px;
   border: none;
   background-color: #f8efba;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 0px 15px 15px 0px;
   cursor: pointer;
 }
 
@@ -15,7 +15,7 @@
   width: 400px;
   border: none;
   background-color: #f8efba;
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 15px 0px 0px 15px;
   cursor: text;
 }
 

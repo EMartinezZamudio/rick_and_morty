@@ -1,18 +1,25 @@
 import PropTypes from "prop-types";
 import SearchBar from "../SearchBar/SearchBar";
-import { navContent, routes } from "./Nav.module.css";
-import { Link } from "react-router-dom";
+import { navContent, routes, active, pending } from "./Nav.module.css";
+import { NavLink } from "react-router-dom";
 
 const Nav = ({ onSearch }) => {
   return (
     <nav className={navContent}>
       <div className={routes}>
-        <Link to="/about">
-          <span>About</span>
-        </Link>
-        <Link to="/home">
-          <span>Home</span>
-        </Link>
+        <NavLink
+          to="/about"
+          className={({ isActive }) => (isActive ? active : pending)}
+        >
+          About
+        </NavLink>
+
+        <NavLink
+          to="/home"
+          className={({ isActive }) => (isActive ? active : pending)}
+        >
+          Home
+        </NavLink>
       </div>
       <SearchBar onSearch={onSearch} />
     </nav>
