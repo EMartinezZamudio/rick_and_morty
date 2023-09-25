@@ -1,3 +1,63 @@
-.form {
-  background-color: yellow;
+.wreaperForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid white;
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+}
+.wreaperForm h2 {
+  font-size: 35px;
+  margin: 0px;
+}
+
+.itemsForm {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  width: 250px;
+  height: 55px;
+  border-bottom: 2px solid white;
+}
+
+.itemsForm input {
+  background-color: transparent;
+  height: 30px;
+  width: 380px;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.itemsForm label {
+  font-size: 16px;
+}
+
+.itemsForm span {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  font-size: 14px;
+}
+
+.btn {
+  background-color: #f8efba;
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: transparent;
+  border: 2px solid #f8efba;
+  border-radius: 10px;
+  color: #f8efba;
 }
