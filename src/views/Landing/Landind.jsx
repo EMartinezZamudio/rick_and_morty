@@ -1,15 +1,19 @@
-import { landing, welcome, title, btn } from "./landing.module.css";
+import { landing, welcome, title, btn, login } from "./landing.module.css";
 import { Link } from "react-router-dom";
+import Form from "../../components/Form/Form";
 
 const Landing = () => {
   return (
-    <section className={landing}>
-      <h2 className={welcome}>Bievenidos a la</h2>
-      <h1 className={title}>App de Rick and Morty</h1>
-      <Link to="/home">
-        <button className={btn}>Cerrar</button>
-      </Link>
-    </section>
+    <form className={landing}>
+      <div className={welcome}>
+        <h2>Bievenidos a la</h2>
+        <h1 className={title}>App de Rick and Morty</h1>
+        <Link to="/home"></Link>
+      </div>
+      <div className={login}>
+        <Form />
+      </div>
+    </form>
   );
 };
 
