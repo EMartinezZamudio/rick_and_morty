@@ -1,22 +1,39 @@
 import { useState } from "react";
 import { wreaperForm, itemsForm, btn } from "./Form.module.css";
+import dataValidation from "./validation";
 
-const Form = () => {
-  const [form, setForm] = useState({
+const Form = ({ login }) => {
+  const [focus, setFocus] = useState("");
+
+  const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleInput = (event) => {
     const property = event.target.name;
     const value = event.target.value;
+    const newErrors = dataValidation({ ...userData, [property]: value });
 
-    setForm({ ...form, [property]: value });
+    setUserData({ ...userData, [property]: value });
+    setErrors({ ...errors, ...newErrors });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert("Login Exitoso");
+    if (!errors.name && !errors.password) {
+      login(userData);
+      setUserData({
+        email: "",
+        password: "",
+      });
+    } else alert("Llene todos los campos correctamente");
+  };
+
+  const handleFocus = (event) => {
+    setFocus(event.target.name);
   };
 
   return (
@@ -27,10 +44,11 @@ const Form = () => {
         <input
           type="email"
           name="email"
-          value={form.email}
+          value={userData.email}
           onChange={handleInput}
+          onFocus={handleFocus}
         />
-        <span>{"✅"}</span>
+        <span>{focus === "email" && errors.email}</span>
       </div>
 
       <div className={itemsForm}>
@@ -38,12 +56,13 @@ const Form = () => {
         <input
           type="password"
           name="password"
-          value={form.password}
+          value={userData.password}
           onChange={handleInput}
+          onFocus={handleFocus}
         />
-        <span>{"⛔"}</span>
+        <span>{focus === "password" && errors.password}</span>
       </div>
-      <button type="submit" className={btn} onClick={handleSubmit}>
+      <button type="submit" className={btn}>
         Ingresar
       </button>
     </form>

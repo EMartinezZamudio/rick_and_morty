@@ -1,8 +1,8 @@
 import Nav from "./components/Nav/Nav.jsx";
 import { app } from "./App.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import About from "./views/About/About.jsx";
 import Home from "./views/Home/Home.jsx";
 import Landing from "./views/Landing/Landind.jsx";
@@ -10,6 +10,8 @@ import Detail from "./views/Detail/Detail.jsx";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+
+  const { pathname } = useLocation();
 
   const onSearch = (id) => {
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
@@ -34,11 +36,30 @@ function App() {
     });
   };
 
+  const navigate = useNavigate();
+
+  const [access, setAccess] = useState(false);
+  const EMAIL = "emmanuel@gmail.com";
+  const PASSWORD = "hola123";
+
+  const login = (data) => {
+    if (!data.email || !data.password)
+      alert("Llene los campos email y contraseña");
+    else if (data.email === EMAIL && data.password === PASSWORD) {
+      setAccess(true);
+      navigate("/home");
+    } else alert("email y/o contraseña incorrectos");
+  };
+
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
+
   return (
     <div className={app}>
-      <Nav onSearch={onSearch} />
+      {pathname !== "/" && <Nav onSearch={onSearch} />}
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Landing login={login} />} />
 
         <Route
           path="/home"

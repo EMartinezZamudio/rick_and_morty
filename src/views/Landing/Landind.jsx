@@ -1,17 +1,16 @@
-import { landing, welcome, title } from "./landing.module.css";
-import { Link } from "react-router-dom";
+import { landing, title } from "./landing.module.css";
+
 import Form from "../../components/Form/Form";
 
-const Landing = () => {
+const Landing = ({ login }) => {
   return (
     <section className={landing}>
-      <div className={welcome}>
+      <div className={title}>
         <h2>Bievenidos a la</h2>
-        <h1 className={title}>App de Rick and Morty</h1>
-        <Link to="/home"></Link>
+        <h1>App de Rick and Morty</h1>
       </div>
       <div>
-        <Form />
+        <Form login={login} />
       </div>
     </section>
   );
