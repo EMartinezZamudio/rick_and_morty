@@ -4,10 +4,10 @@
   justify-content: space-around;
   align-items: center;
   border: 2px solid white;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
   border-radius: 20px;
-  width: 350px;
-  height: 400px;
+  width: 320px;
+  height: 410px;
   padding: 20px;
   margin-top: 70px;
 }
@@ -17,20 +17,19 @@
 }
 
 .itemsForm {
-  /* background-color: blueviolet; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  width: 250px;
-  height: 55px;
+  width: 280px;
+  height: 45px;
   border-bottom: 2px solid white;
 }
 
 .itemsForm input {
   background-color: transparent;
   height: 30px;
-  width: 246px;
+  width: 275px;
   border: none;
   outline: none;
   color: white;
@@ -41,17 +40,16 @@
 }
 
 .itemsForm span {
-  /* background-color: red; */
   color: #ff3838;
   position: absolute;
-  bottom: -22px;
+  bottom: -27px;
   font-size: 16px;
   height: 20px;
 }
 
 .btn {
   background-color: #f8efba;
-  width: 100px;
+  width: 150px;
   height: 30px;
   border: none;
   border-radius: 10px;
