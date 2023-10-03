@@ -35,8 +35,6 @@ export default function Card(props) {
     });
   }, [myFavorites]);
 
-  console.log(pathname);
-
   return (
     <article className={card}>
       <div className={cardTitle}>
