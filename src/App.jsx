@@ -7,6 +7,7 @@ import About from "./views/About/About.jsx";
 import Home from "./views/Home/Home.jsx";
 import Landing from "./views/Landing/Landind.jsx";
 import Detail from "./views/Detail/Detail.jsx";
+import Favorites from "./views/Favorites/Favorites.jsx";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -68,6 +69,8 @@ function App() {
         <Route path="/about" element={<About />} />
 
         <Route path="/detail/:id" element={<Detail />} />
+
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   );

@@ -20,6 +20,12 @@ const Nav = ({ onSearch }) => {
         >
           Home
         </NavLink>
+        <NavLink
+          to="/favorites"
+          className={({ isActive }) => (isActive ? active : pending)}
+        >
+          Favorites
+        </NavLink>
       </div>
       <SearchBar onSearch={onSearch} />
     </nav>
