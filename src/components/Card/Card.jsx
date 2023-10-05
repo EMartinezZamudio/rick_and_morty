@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { addFav, removeFav } from "../../redux/actions";
 import { useLocation } from "react-router-dom";
 import {
+  wrapperCard,
   card,
   cardDescription,
   cardTitle,
@@ -29,34 +30,36 @@ export default function Card(props) {
 
   useEffect(() => {
     myFavorites.forEach((fav) => {
-      if (fav.id === props.id) {
+      if (fav.id === id) {
         setIsFav(true);
       }
     });
   }, [myFavorites]);
 
   return (
-    <article className={card}>
-      <div className={cardTitle}>
-        {pathname !== "/favorites" && (
-          <button className={btnClose} onClick={() => onClose(id)}>
-            X
-          </button>
-        )}
-        <Link className={linkName} to={`/detail/${id}`}>
-          <h2>{name}</h2>
+    <div className={wrapperCard}>
+      <article className={card}>
+        <div className={cardTitle}>
+          {pathname !== "/favorites" && (
+            <button className={btnClose} onClick={() => onClose(id)}>
+              X
+            </button>
+          )}
+          <Link className={linkName} to={`/detail/${id}`}>
+            <h2>{name}</h2>
+          </Link>
+        </div>
+        <div className={cardDescription}>
+          <span>{species}</span>
+          <span>{gender}</span>
+        </div>
+        <Link className={linkImg} to={`/detail/${id}`}>
+          <img src={image} alt="" />
         </Link>
-      </div>
-      <div className={cardDescription}>
-        <span>{species}</span>
-        <span>{gender}</span>
-      </div>
-      <Link className={linkImg} to={`/detail/${id}`}>
-        <img src={image} alt="" />
-      </Link>
-      <button className={btnFav} onClick={handleFavorite}>
-        {isFav ? "💖" : "🤍"}
-      </button>
-    </article>
+        <button className={btnFav} onClick={handleFavorite}>
+          {isFav ? "💖" : "🤍"}
+        </button>
+      </article>
+    </div>
   );
 }

@@ -4,12 +4,12 @@
   justify-content: space-around;
   align-items: center;
   border: 2px solid white;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(25px);
   border-radius: 20px;
   width: 320px;
   height: 410px;
   padding: 20px;
-  margin-top: 70px;
+  margin-top: 55px;
 }
 .wreaperForm h2 {
   font-size: 35px;

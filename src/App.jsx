@@ -56,6 +56,11 @@ function App() {
     !access && navigate("/");
   }, [access]);
 
+  const body = document.querySelector("body");
+
+  if (pathname === "/") body.className = "bg-login";
+  else body.className = "";
+
   return (
     <div className={app}>
       {pathname !== "/" && <Nav onSearch={onSearch} />}

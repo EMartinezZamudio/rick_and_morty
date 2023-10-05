@@ -1,9 +1,10 @@
 .landing {
+  /* background-color: pink; */
   color: #f8efba;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .title {

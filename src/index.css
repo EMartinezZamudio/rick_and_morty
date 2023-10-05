@@ -5,3 +5,10 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+
+.bg-login {
+  background-image: url("assets/fondo-login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
