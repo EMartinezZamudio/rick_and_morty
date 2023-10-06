@@ -1,0 +1,32 @@
+.wrapperFav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.wrapperSelects {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  height: 50px;
+}
+
+.wrapperSelects select {
+  width: 110px;
+  height: 100%;
+}
+
+.wrapperSelects span {
+  color: white;
+  font-size: 20px;
+}
+
+.selectItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 210px;
+  height: 25px;
+}

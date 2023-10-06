@@ -14,7 +14,7 @@
   height: 300px;
   width: 200px;
   position: relative;
-  transition: 5ms;
+  transition: 60ms;
 }
 
 .card img {
@@ -86,7 +86,7 @@
   right: 2px;
   top: 125px;
   cursor: pointer;
-  transition: 5ms;
+  transition: 60ms;
 }
 
 .cardDescription {

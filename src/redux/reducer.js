@@ -8,7 +8,11 @@ const initialState = {
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_FAV:
-      return { ...state, myFavorites: [...state.myFavorites, payload] };
+      return {
+        ...state,
+        myFavorites: [...state.allCharacters, payload],
+        allCharacters: [...state.allCharacters, payload],
+      };
 
     case REMOVE_FAV:
       return {
@@ -19,21 +23,29 @@ const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case FILTER:
-      const filterAllCharacters = [...state.allCharacters].filter(
-        (char) => char === payload
-      );
+      // eslint-disable-next-line no-case-declarations
+      if (payload === "All") {
+        return {
+          ...state,
+          myFavorites: state.allCharacters,
+        };
+      } else {
+        const filterAllCharacters = state.allCharacters.filter((char) => {
+          return char.gender === payload;
+        });
 
-      return {
-        ...state,
-        myFavorites: filterAllCharacters,
-      };
+        return {
+          ...state,
+          myFavorites: filterAllCharacters,
+        };
+      }
 
     case ORDER:
-      const orderAllCharacters = [...state.allCharacters].sort((a, b) => {
-        if (payload === "A") return a - b;
-        if (payload === "D") return b - a;
+      // eslint-disable-next-line no-case-declarations
+      const orderAllCharacters = state.allCharacters.sort((a, b) => {
+        if (payload === "A") return a.id - b.id;
+        if (payload === "D") return b.id - a.id;
       });
-
       return {
         ...state,
         myFavorites: orderAllCharacters,
