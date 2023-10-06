@@ -23,6 +23,7 @@
 
 .active {
   color: #00cec9;
+  transition: 0.5s;
 }
 
 .pending {
