@@ -15,7 +15,7 @@ function App() {
   const { pathname } = useLocation();
 
   const onSearch = (id) => {
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+    axios(`http://localhost:3001/rickandmorty/characters/${id}`).then(
       ({ data }) => {
         if (data.name) {
           for (let character of characters) {
