@@ -15,8 +15,8 @@ function App() {
   const { pathname } = useLocation();
 
   const onSearch = (id) => {
-    axios(`http://localhost:3001/rickandmorty/characters/${id}`).then(
-      ({ data }) => {
+    axios(`http://localhost:3001/rickandmorty/characters/${id}`)
+      .then(({ data }) => {
         if (data.name) {
           for (let character of characters) {
             if (character.id === Number(id)) return characters;
@@ -25,8 +25,8 @@ function App() {
         } else {
           window.alert("¡No hay personajes con este ID!");
         }
-      }
-    );
+      })
+      .catch((error) => window.alert(error.response.data));
   };
 
   const onClose = (id) => {

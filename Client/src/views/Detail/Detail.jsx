@@ -8,15 +8,15 @@ const Detail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/characters/${id}`).then(
-      ({ data }) => {
+    axios(`http://localhost:3001/rickandmorty/characters/${id}`)
+      .then(({ data }) => {
         if (data.name) {
           setCharacter(data);
         } else {
           window.alert("No hay personajes con ese ID");
         }
-      }
-    );
+      })
+      .catch((error) => window.alert(error.response.data));
     return setCharacter({});
   }, [id]);
 
