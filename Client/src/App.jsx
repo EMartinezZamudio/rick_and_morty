@@ -40,16 +40,31 @@ function App() {
   const navigate = useNavigate();
 
   const [access, setAccess] = useState(false);
-  const EMAIL = "emmanuel@gmail.com";
-  const PASSWORD = "hola123";
+  // const EMAIL = "emmanuel@gmail.com";
+  // const PASSWORD = "hola123";
 
-  const login = (data) => {
-    if (!data.email || !data.password)
-      alert("Llene los campos email y contraseña");
-    else if (data.email === EMAIL && data.password === PASSWORD) {
-      setAccess(true);
-      navigate("/home");
-    } else alert("email y/o contraseña incorrectos");
+  const login = (userData) => {
+    const URL = "http://localhost:3001/rickandmorty/login";
+    const { email, password } = userData;
+
+    if (!email && !password) {
+      return alert("Llene los campos email y contraseña");
+    }
+
+    axios(`${URL}?email=${email}&password=${password}`)
+      .then(({ data }) => {
+        setAccess(data.access);
+        access && navigate("/home");
+        return data.access;
+      })
+      .then((access) => {
+        !access && alert("email y/o contraseña incorrectos");
+      });
+
+    // else if (email === EMAIL && data.password === PASSWORD) {
+    //   setAccess(true);
+    //   navigate("/home");
+    // } else alert("email y/o contraseña incorrectos");
   };
 
   useEffect(() => {
