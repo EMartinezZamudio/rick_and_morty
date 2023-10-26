@@ -1,23 +1,22 @@
 // modulos
 const express = require("express");
 const server = express();
-const getCharById = require("./controllers/getCharById");
+const routers = require("./routes");
+
+// custom middlerwares
+const configServerMiddlerware = require("./middlerwares/configServerMiddlerware");
 
 // variables
 const PORT = 3001;
 
-server.get("/", (req, res) => {
-  res.send("Hi!, I'm manu's server");
-});
+// Middlerwares
+server.use(configServerMiddlerware());
+server.use(express.json());
 
-server.get("/characters/:id", (req, res) => {
-  const id = Number(req.params.id);
+// servidor
+server.use("/rickandmorty", routers);
 
-  if (typeof id === "number") {
-    return getCharById(res, id);
-  }
-});
-
+// salida del servidor
 server.listen(PORT, () => {
   console.log(`Server raised in port: ${PORT}`);
 });

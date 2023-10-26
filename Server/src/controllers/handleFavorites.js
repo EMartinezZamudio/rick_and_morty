@@ -6,12 +6,17 @@ const postFav = (req, res) => {
 };
 
 const deleteFav = (req, res) => {
-  const { id } = req.query;
-  myFavorites = myFavorites.filter((char) => {
-    return char.id !== id;
-  });
+  const id = Number(req.params.id);
 
-  res.json(myFavorites);
+  if (typeof id === "number") {
+    myFavorites = myFavorites.filter((char) => {
+      return char.id !== id;
+    });
+
+    return res.json(myFavorites);
+  }
+
+  res.status(404).json({ message: "Error in id, must be a number" });
 };
 
 module.exports = {
