@@ -1,6 +1,22 @@
+// modulos
 const express = require("express");
 const server = express();
+const getCharById = require("./controllers/getCharById");
+
+// variables
 const PORT = 3001;
+
+server.get("/", (req, res) => {
+  res.send("Hi!, I'm manu's server");
+});
+
+server.get("/characters/:id", (req, res) => {
+  const id = Number(req.params.id);
+
+  if (typeof id === "number") {
+    return getCharById(res, id);
+  }
+});
 
 server.listen(PORT, () => {
   console.log(`Server raised in port: ${PORT}`);
