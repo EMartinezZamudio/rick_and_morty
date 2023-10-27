@@ -22,6 +22,8 @@ const Form = ({ login }) => {
   };
 
   const handleSubmit = (event) => {
+    event.preventDefault();
+
     if (!userData.email && !userData.password) {
       setErrors({ email: "Campo requerido", password: "Campo requerido" });
       setFocus(true);
@@ -30,7 +32,6 @@ const Form = ({ login }) => {
     }
 
     if (!errors.email && !errors.password) {
-      event.preventDefault();
       login(userData);
       setUserData((userData) => {
         return { ...userData, password: "" };
