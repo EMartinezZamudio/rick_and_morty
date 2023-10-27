@@ -38,9 +38,9 @@ const Detail = () => {
         <p>
           Gender: <span>{gender}</span>
         </p>
-        {origin && origin.name && (
+        {origin && (
           <p>
-            Origin: <span>{origin.name}</span>
+            Origin: <span>{origin}</span>
           </p>
         )}
       </div>

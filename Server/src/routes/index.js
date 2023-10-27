@@ -11,7 +11,7 @@ routers.get("/", (req, res) => {
   res.send("Hi!, I'm manu's server");
 });
 
-routers.get("/character/:id", (req, res) => {
+routers.get("/characters/:id", (req, res) => {
   const id = Number(req.params.id);
 
   if (typeof id === "number") {
@@ -19,16 +19,8 @@ routers.get("/character/:id", (req, res) => {
   }
 });
 
-routers.get("/login", (req, res) => {
-  login(req, res);
-});
-
-routers.post("/fav", (req, res) => {
-  postFav(req, res);
-});
-
-routers.delete("/fav/:id", (req, res) => {
-  deleteFav(req, res);
-});
+routers.get("/login", login);
+routers.post("/fav", postFav);
+routers.delete("/fav/:id", deleteFav);
 
 module.exports = routers;

@@ -9,7 +9,15 @@ const getCharById = (res, id) => {
     .then(({ data }) => {
       if (data.name) {
         const { id, status, name, species, origin, image, gender } = data;
-        res.json({ id, status, name, species, origin, image, gender });
+        res.json({
+          id,
+          status,
+          name,
+          species,
+          origin: origin.name,
+          image,
+          gender,
+        });
       }
     })
     .catch((error) => {

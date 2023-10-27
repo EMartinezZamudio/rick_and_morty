@@ -40,8 +40,6 @@ function App() {
   const navigate = useNavigate();
 
   const [access, setAccess] = useState(false);
-  // const EMAIL = "emmanuel@gmail.com";
-  // const PASSWORD = "hola123";
 
   const login = (userData) => {
     const URL = "http://localhost:3001/rickandmorty/login";
@@ -60,11 +58,6 @@ function App() {
       .then((access) => {
         !access && alert("email y/o contraseña incorrectos");
       });
-
-    // else if (email === EMAIL && data.password === PASSWORD) {
-    //   setAccess(true);
-    //   navigate("/home");
-    // } else alert("email y/o contraseña incorrectos");
   };
 
   useEffect(() => {
