@@ -22,14 +22,24 @@ const Form = ({ login }) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!errors.name && !errors.password) {
+    if (!userData.email && !userData.password) {
+      setErrors({ email: "Campo requerido", password: "Campo requerido" });
+      setFocus(true);
+      alert("Llene los campos email y contraseña");
+      return;
+    }
+
+    if (!errors.email && !errors.password) {
+      event.preventDefault();
       login(userData);
-      setUserData({
-        email: "",
-        password: "",
+      setUserData((userData) => {
+        return { ...userData, password: "" };
       });
-    } else alert("Llene todos los campos correctamente");
+    } else {
+      setFocus(true);
+      alert("Llene todos los campos correctamente");
+      return;
+    }
   };
 
   const handleFocus = (event) => {
@@ -48,7 +58,7 @@ const Form = ({ login }) => {
           onChange={handleInput}
           onFocus={handleFocus}
         />
-        <span>{focus === "email" && errors.email}</span>
+        <span>{(focus === "email" || focus === true) && errors.email}</span>
       </div>
 
       <div className={itemsForm}>
@@ -60,7 +70,9 @@ const Form = ({ login }) => {
           onChange={handleInput}
           onFocus={handleFocus}
         />
-        <span>{focus === "password" && errors.password}</span>
+        <span>
+          {(focus === "password" || focus === true) && errors.password}
+        </span>
       </div>
       <button type="submit" className={btn}>
         Ingresar

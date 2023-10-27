@@ -45,10 +45,6 @@ function App() {
     const URL = "http://localhost:3001/rickandmorty/login";
     const { email, password } = userData;
 
-    if (!email && !password) {
-      return alert("Llene los campos email y contraseña");
-    }
-
     axios(`${URL}?email=${email}&password=${password}`)
       .then(({ data }) => {
         setAccess(data.access);
@@ -62,7 +58,7 @@ function App() {
 
   useEffect(() => {
     !access && navigate("/");
-  }, [access]);
+  }, []);
 
   const body = document.querySelector("body");
 
