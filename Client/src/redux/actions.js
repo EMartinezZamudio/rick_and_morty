@@ -8,24 +8,43 @@ import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./actionTypes";
 const END_POINT = "http://localhost:3001/rickandmorty/fav";
 
 export const addFav = (char) => {
-  return (dispatch) => {
-    axios.post(END_POINT, char).then(({ data }) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.post(END_POINT, char);
       return dispatch({
         type: ADD_FAV,
         payload: data,
       });
-    });
+    } catch (error) {
+      throw new Error("error en el action addFav");
+    }
   };
+  // axios.post(END_POINT, char).then(({ data }) => {
+  //   return dispatch({
+  //     type: ADD_FAV,
+  //     payload: data,
+  //   });
+  // });
 };
 
 export const removeFav = (id) => {
-  return (dispatch) => {
-    axios.delete(`${END_POINT}/${id}`).then(({ data }) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete(`${END_POINT}/${id}`);
       return dispatch({
         type: REMOVE_FAV,
         payload: data,
       });
-    });
+    } catch (error) {
+      throw new Error("error en el action remove fav");
+    }
+
+    // axios.delete(`${END_POINT}/${id}`).then(({ data }) => {
+    //   return dispatch({
+    //     type: REMOVE_FAV,
+    //     payload: data,
+    //   });
+    // });
   };
 };
 

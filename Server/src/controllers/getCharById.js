@@ -4,7 +4,26 @@ const axios = require("axios");
 // constantes
 const URL = `https://rickandmortyapi.com/api/character/`;
 
-const getCharById = (res, id) => {
+const getCharById = async (characterId) => {
+  const { data } = await axios(`${URL}${characterId}`);
+  const { id, status, name, species, origin, image, gender } = data;
+  const character = {
+    id,
+    status,
+    name,
+    species,
+    origin: origin.name,
+    image,
+    gender,
+  };
+  return character;
+};
+
+module.exports = getCharById;
+
+// ----------------------------------- con promesas ------------------------------
+
+/* const getCharById = (res, id) => {
   axios(`${URL}${id}`) //
     .then(({ data }) => {
       if (data.name) {
@@ -27,9 +46,7 @@ const getCharById = (res, id) => {
       }
       res.status(500).json({ message: error.message });
     });
-};
-
-module.exports = getCharById;
+}; */
 
 // ----------------------------- server sin express ---------------------------
 
