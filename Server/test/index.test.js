@@ -55,4 +55,27 @@ describe("test de RUTAS", () => {
       expect(body).toEqual({ access: false });
     });
   });
+
+  describe("POST /rickandmorty/fav", () => {
+    const URL = "/rickandmorty/fav";
+    const character1 = { id: 1, name: "Emmanuel", edad: 27 };
+    const character2 = { id: 2, name: "Dayana", edad: 22 };
+
+    it("Debe devolver lo que se envia por body", async () => {
+      await agent
+        .post(URL)
+        .send(character1)
+        .expect([{ id: 1, name: "Emmanuel", edad: 27 }]);
+    });
+
+    it("Si se vuelve a enviar un nuevo elemento, debe contener el elemento enviado antes", async () => {
+      await agent
+        .post(URL)
+        .send(character2)
+        .expect([
+          { id: 1, name: "Emmanuel", edad: 27 },
+          { id: 2, name: "Dayana", edad: 22 },
+        ]);
+    });
+  });
 });
