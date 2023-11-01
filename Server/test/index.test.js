@@ -61,21 +61,26 @@ describe("test de RUTAS", () => {
     const character1 = { id: 1, name: "Emmanuel", edad: 27 };
     const character2 = { id: 2, name: "Dayana", edad: 22 };
 
-    it("Debe devolver lo que se envia por body", async () => {
-      await agent
-        .post(URL)
-        .send(character1)
-        .expect([{ id: 1, name: "Emmanuel", edad: 27 }]);
+    it("Debe devolver un arreglo con lo que se envia por body", async () => {
+      await agent.post(URL).send(character1).expect([character1]);
     });
 
     it("Si se vuelve a enviar un nuevo elemento, debe contener el elemento enviado antes", async () => {
-      await agent
-        .post(URL)
-        .send(character2)
-        .expect([
-          { id: 1, name: "Emmanuel", edad: 27 },
-          { id: 2, name: "Dayana", edad: 22 },
-        ]);
+      await agent.post(URL).send(character2).expect([character1, character2]);
+    });
+  });
+
+  describe("DELETE /rickandmorty/fav/:id", () => {
+    const URL = "/rickandmorty/fav";
+    const character1 = { id: 1, name: "Emmanuel", edad: 27 };
+    const character2 = { id: 2, name: "Dayana", edad: 22 };
+
+    it("En caso de que no exista el id, el arreglo debe devolverse sin modificar", async () => {
+      await agent.delete(`${URL}/5`).expect([character1, character2]);
+    });
+
+    it("En caso de existir el id, se debe de eliminar el elemento", async () => {
+      await agent.delete(`${URL}/1`).expect([character2]);
     });
   });
 });
