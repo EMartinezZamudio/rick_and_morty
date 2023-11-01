@@ -8,14 +8,15 @@ const dataValidation = (data) => {
     password: "",
   };
 
-  if (!data.email) errors.email = "Campo requerido";
-  else if (!REGEX_EMAIL.test(data.email)) errors.email = "El email es invalido";
+  if (!data.email) errors.email = "*Campo requerido";
+  else if (!REGEX_EMAIL.test(data.email))
+    errors.email = "*El email es invalido";
 
-  if (!data.password) errors.password = "Campo requerido";
+  if (!data.password) errors.password = "*Campo requerido";
   else if (!REGEX_PASSWORD_CHAR.test(data.password))
-    errors.password = "La contraseña debe tener de 6 a 10 caracteres";
+    errors.password = "*Debe tener de 6 a 10 caracteres";
   else if (!REGEX_PASSWORD_NUM.test(data.password))
-    errors.password = "La contraseña debe tener almenos un numero";
+    errors.password = "*Al menos un numero";
 
   return errors;
 };

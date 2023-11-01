@@ -25,7 +25,7 @@ const Form = ({ login }) => {
     event.preventDefault();
 
     if (!userData.email && !userData.password) {
-      setErrors({ email: "Campo requerido", password: "Campo requerido" });
+      setErrors({ email: "*Campo requerido", password: "*Campo requerido" });
       setFocus(true);
       alert("Llene los campos email y contraseña");
       return;
@@ -43,10 +43,6 @@ const Form = ({ login }) => {
     }
   };
 
-  const handleFocus = (event) => {
-    setFocus(event.target.name);
-  };
-
   return (
     <form className={wreaperForm} onSubmit={handleSubmit}>
       <h2>Login</h2>
@@ -57,9 +53,8 @@ const Form = ({ login }) => {
           name="email"
           value={userData.email}
           onChange={handleInput}
-          onFocus={handleFocus}
         />
-        <span>{(focus === "email" || focus === true) && errors.email}</span>
+        <span>{focus && errors.email}</span>
       </div>
 
       <div className={itemsForm}>
@@ -69,11 +64,8 @@ const Form = ({ login }) => {
           name="password"
           value={userData.password}
           onChange={handleInput}
-          onFocus={handleFocus}
         />
-        <span>
-          {(focus === "password" || focus === true) && errors.password}
-        </span>
+        <span>{focus && errors.password}</span>
       </div>
       <button type="submit" className={btn}>
         Ingresar
