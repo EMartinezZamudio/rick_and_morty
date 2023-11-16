@@ -6,6 +6,7 @@ const routers = express.Router();
 const getCharById = require("../controllers/getCharById");
 const login = require("../controllers/login");
 const { postFav, deleteFav } = require("../controllers/handleFavorites");
+const postUser = require("../controllers/postUser");
 
 routers.get("/", (req, res) => {
   res.send("Hi!, I'm manu's server");
@@ -25,6 +26,7 @@ routers.get("/characters/:id", async (req, res) => {
   }
 });
 
+routers.post("/login", postUser);
 routers.get("/login", login);
 routers.post("/fav", postFav);
 routers.delete("/fav/:id", deleteFav);
