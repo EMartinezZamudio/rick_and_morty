@@ -5,7 +5,8 @@ const routers = express.Router();
 // controllers
 const getCharById = require("../controllers/getCharById");
 const login = require("../controllers/login");
-const { postFav, deleteFav } = require("../controllers/handleFavorites");
+const postFav = require("../controllers/postFav");
+const deleteFav = require("../controllers/deleteFav");
 const postUser = require("../controllers/postUser");
 
 routers.get("/", (req, res) => {
