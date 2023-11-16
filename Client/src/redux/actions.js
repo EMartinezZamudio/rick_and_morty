@@ -2,10 +2,24 @@
 import axios from "axios";
 
 // variales
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./actionTypes";
+import { FETCH_FAV, ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./actionTypes";
 
 // constantes
 const END_POINT = "http://localhost:3001/rickandmorty/fav";
+
+export const fetchFavorite = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(END_POINT);
+      return dispatch({
+        type: FETCH_FAV,
+        payload: data,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+};
 
 export const addFav = (char) => {
   return async (dispatch) => {
