@@ -13,7 +13,7 @@ const postUser = async (req, res) => {
     });
 
     if (created) {
-      res.status(200).json({ message: "Usuario Guardado" });
+      res.status(200).json(user);
     } else {
       res.status(400).json({ message: "El usuario ya existe" });
     }
