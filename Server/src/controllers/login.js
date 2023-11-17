@@ -14,7 +14,7 @@ const login = async (req, res) => {
         ? res.status(200).json({ access: true })
         : res.status(403).json({ message: "Contraseña incorrecta" });
     } else {
-      res.status(404).json({ messege: "Usuario no encontrado" });
+      res.status(404).json({ error: "Usuario no encontrado" });
     }
   } catch (error) {
     res.status(500).json({ error: error.message });

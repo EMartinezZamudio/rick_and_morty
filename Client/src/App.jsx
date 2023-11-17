@@ -59,7 +59,7 @@ function App() {
       setAccess(data.access);
       !data.access && alert("email y/o contraseña incorrectos");
     } catch (error) {
-      alert(error.response.data.message);
+      alert(error.message);
     }
   };
 
