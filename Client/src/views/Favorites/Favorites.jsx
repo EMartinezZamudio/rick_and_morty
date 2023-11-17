@@ -4,7 +4,7 @@ import Cards from "../../components/Cards/Cards";
 //* hooks
 import { useDispatch, useSelector } from "react-redux";
 import { orderCards, filterCards } from "../../redux/actions";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 //* estilos
 import {
@@ -12,9 +12,6 @@ import {
   wrapperSelects,
   selectItems,
 } from "./Favorites.module.css";
-
-// actions
-import { fetchFavorite } from "../../redux/actions";
 
 const Favorites = () => {
   const characters = useSelector((state) => state.myFavorites);
@@ -29,10 +26,6 @@ const Favorites = () => {
   const handleFilter = (event) => {
     dispatch(filterCards(event.target.value));
   };
-
-  // useEffect(() => {
-  //   if (!characters.length) console.log("voy a traer a los fav");
-  // }, []);
 
   return (
     <section className={wrapperFav}>

@@ -29,11 +29,13 @@ export default function Card(props) {
   };
 
   useEffect(() => {
-    myFavorites.forEach((fav) => {
-      if (fav.id === id) {
-        setIsFav(true);
-      }
-    });
+    if (myFavorites.length) {
+      myFavorites.forEach((fav) => {
+        if (fav.id === id) {
+          setIsFav(true);
+        }
+      });
+    }
   }, [myFavorites]);
 
   return (

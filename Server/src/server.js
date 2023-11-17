@@ -2,11 +2,13 @@
 const express = require("express");
 const server = express();
 const routers = require("./routes");
+const morgan = require("morgan");
 
 // custom middlerwares
 const configServerMiddlerware = require("./middlerwares/configServerMiddlerware");
 
 // Middlerwares
+server.use(morgan("dev"));
 server.use(configServerMiddlerware());
 server.use(express.json());
 

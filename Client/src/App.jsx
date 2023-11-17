@@ -12,6 +12,10 @@ import Favorites from "./views/Favorites/Favorites.jsx";
 
 // hooks
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+
+// actions de redux
+import { fetchFavorite } from "./redux/actions.js";
 
 // estilos
 import { app } from "./App.module.css";
@@ -24,6 +28,8 @@ function App() {
   // hooks de react-router.dom
   const { pathname } = useLocation();
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const onSearch = async (id) => {
     try {
@@ -57,9 +63,11 @@ function App() {
         `${URL}?email=${email}&password=${password}`
       );
       setAccess(data.access);
-      !data.access && alert("email y/o contraseña incorrectos");
+      dispatch(fetchFavorite());
     } catch (error) {
-      alert(error.message);
+      const status = error.response.status;
+      if (status === 403) return alert("Contraseña incorrectos");
+      if (status === 404) return alert("Email no registrado");
     }
   };
 
