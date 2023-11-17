@@ -31,7 +31,7 @@ function App() {
         `http://localhost:3001/rickandmorty/characters/${id}`
       );
       for (let character of characters) {
-        if (character.id === Number(id)) return;
+        if (character.id === Number(id)) return alert("Personaje repetido");
       }
 
       setCharacters((oldChars) => [...oldChars, data]);

@@ -30,9 +30,9 @@ const Favorites = () => {
     dispatch(filterCards(event.target.value));
   };
 
-  useEffect(() => {
-    if (!characters.length) console.log("voy a traer a los fav");
-  }, []);
+  // useEffect(() => {
+  //   if (!characters.length) console.log("voy a traer a los fav");
+  // }, []);
 
   return (
     <section className={wrapperFav}>
