@@ -16,7 +16,7 @@ import {
 import { useState } from "react";
 
 export default function Card(props) {
-  const { onClose, name, species, gender, image, id } = props;
+  const { onClose, id, name, origin, status, image, species, gender } = props;
 
   const myFavorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
@@ -24,7 +24,8 @@ export default function Card(props) {
   const { pathname } = useLocation();
 
   const handleFavorite = () => {
-    isFav ? dispatch(removeFav(id)) : dispatch(addFav(props));
+    const character = { id, name, origin, status, image, species, gender };
+    isFav ? dispatch(removeFav(id)) : dispatch(addFav(character));
     setIsFav(!isFav);
   };
 

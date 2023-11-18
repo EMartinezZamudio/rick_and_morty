@@ -25,6 +25,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         myFavorites: payload,
+        allCharacters: payload,
       };
 
     case FILTER:
